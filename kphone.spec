@@ -25,7 +25,7 @@ Internet. The new 2.0 version also supports Presence and Instant
 Messaging.
 
 %description -l pl
-KPhone jest klientem SIP (Session Initiation Protocol) dla linuxa,
+KPhone jest klientem SIP (Session Initiation Protocol) dla Linuksa,
 który umo¿liwia inicjowanie po³±czeñ VoIP( G³os po IP) poprzez sieæ
 internet. Od wersji 2.0 dzia³a z Presence i Instant Messaging.
 
