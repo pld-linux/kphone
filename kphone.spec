@@ -14,7 +14,7 @@ Source0:	http://www.wirlab.net/kphone/%{name}-%{version}.tgz
 # Source0-md5:	5b22b8697d0bba6b86d7073fb9b3e856
 URL:		http://www.wirlab.net/kphone/index.html
 BuildRequires:	kdelibs-devel >= 3.1.1
-BuildRequires:	openssl-devel >= 0.9.6k
+BuildRequires:	openssl-devel >= 0.9.6m
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix /usr/X11R6
