@@ -1,5 +1,3 @@
-# TODO:
-#  - fix files.
 
 Summary:	KPhone - SIP user agent
 Summary(pl):	KPhone - Klient SIP
@@ -74,5 +72,5 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/dissipate2
-%{_includedir}/gsm
+%{_includedir}/kphonegsm
 %{_includedir}/ilbc
