@@ -2,6 +2,7 @@
 #  - Fix why segfaults on multiIP machines while run from user.
 #    From root seems to work.
 #  - separate libs into subpackage
+#  - SECURITY: http://securitytracker.com/alerts/2004/Apr/1009823.html
 
 Summary:	KPhone - SIP user agent
 Summary(pl):	KPhone - Klient SIP
