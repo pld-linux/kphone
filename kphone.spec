@@ -1,6 +1,7 @@
 # TODO:
 #  - Fix why segfaults on multiIP machines while run from user.
 #    From root seems to work.
+#  - separate libs into subpackage
 
 Summary:	KPhone - SIP user agent
 Summary(pl):	KPhone - Klient SIP
@@ -12,11 +13,11 @@ Group:		Applications/Communications
 Source0:	http://www.wirlab.net/kphone/%{name}-%{version}.tgz
 # Source0-md5:	dab8296cb16a8be77b0c410a3a4fe49c
 URL:		http://www.wirlab.net/kphone/index.html
-BuildRequires:	kdelibs-devel >= 3.0
-BuildRequires:	openssl-devel >= 0.9.6i
+BuildRequires:	kdelibs-devel >= 3.1.1
+BuildRequires:	openssl-devel >= 0.9.6j
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define _prefix /usr/X11R6
+%define		_prefix /usr/X11R6
 
 %description
 KPhone is a SIP (Session Initiation Protocol) user agent for Linux,
@@ -56,7 +57,8 @@ kde_icondir="%{_pixmapsdir}"; export kde_icondir
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/Communications
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 mv $RPM_BUILD_ROOT%{_applnkdir}/Internet/kphone.desktop $RPM_BUILD_ROOT%{_applnkdir}/Network/Communications/
 
