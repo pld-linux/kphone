@@ -40,8 +40,8 @@ internet. Od wersji 2.0 dzia³a z Presence i Instant Messaging.
 %build
 %{__autoconf}
 %configure \
-	--enable-jack=%{?with_jack:yes}%{!?with_jack:no}
-
+	--enable-jack=%{?with_jack:yes}%{!?with_jack:no} \
+	--with-qt-libraries=%{_libdir}
 %{__make}
 
 %install
