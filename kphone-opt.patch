@@ -1,12 +1,13 @@
---- kphone/configure.in.orig	2004-04-01 17:56:26.000000000 +0200
-+++ kphone/configure.in	2004-05-30 14:18:55.712259362 +0200
+diff -Naur kphone/configure.in kphone-s/configure.in
+--- kphone/configure.in	Thu Nov  4 10:36:47 2004
++++ kphone-s/configure.in	Thu Nov 11 11:09:33 2004
 @@ -89,7 +89,7 @@
    AC_DEFINE(QT_THREAD_SUPPORT)
  fi
  
 -CFLAGS="-I$ac_cv_qt_inc -Wall"
 +CFLAGS="$CFLAGS -I$ac_cv_qt_inc -Wall"
- LIBS="-L$ac_cv_qt_lib -l$ac_cv_qt_libname -L/usr/local/lib -L/usr/X11R6/lib"
+ LIBS="-L$ac_cv_qt_lib -l$ac_cv_qt_libname -L/usr/local/lib -L/usr/X11R6/lib64 -L/usr/X11R6/lib"
  
  dnl Check for X libraries.
 @@ -142,7 +142,6 @@
