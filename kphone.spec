@@ -14,7 +14,6 @@ URL:		http://www.wirlab.net/kphone/index.html
 BuildRequires:	kdelibs-devel
 BuildRequires:	fam-devel
 BuildRequires:	openssl-devel
-BuildRequires:	qt-st-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -46,27 +45,17 @@ Pliki nag³ówkowe dla kphone.
 kde_appsdir="%{_applnkdir}"; export kde_appsdir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
-
-%configure2_13
-# crashes build
-#	--enable-final \
-
-#%%{__aclocal}
-#%%{__autoheader}
-#%%{__autoconf}
-#%%{__automake}
-#%%configure
+%configure2_13 \
+	--enable-mt
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/Communications
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
-
-mv $RPM_BUILD_ROOT%{_applnkdir}/Internet/kphone.desktop $RPM_BUILD_ROOT%{_applnkdir}/Network/Communications/
+	DESTDIR=$RPM_BUILD_ROOT \
+	kdelnkdir=%{_applnkdir}/Network/Communications
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -78,13 +67,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kphone
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_libdir}/*.la
 %{_applnkdir}/Network/Communications/*.desktop
-%{_datadir}/apps/kphone/icons/hicolor/32x32/actions/*.png
+%{_datadir}/apps/kphone
 %{_pixmapsdir}/*/*/apps/*.png
 
 %files devel
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/*.la
 %{_includedir}/dissipate2
 %{_includedir}/kphonegsm
 %{_includedir}/ilbc
