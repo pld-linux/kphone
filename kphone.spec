@@ -4,12 +4,12 @@
 Summary:	KPhone - SIP user agent
 Summary(pl):	KPhone - Klient SIP
 Name:		kphone
-Version:	4.0
+Version:	4.0.1
 Release:	0.1
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.wirlab.net/kphone/%{name}-%{version}.tgz
-# Source0-md5:	c27393e931702dac6ecad992acbe3df8
+# Source0-md5:	0f8dae2f1b2cd8290e857881eeef5b3d
 URL:		http://www.wirlab.net/kphone/index.html
 BuildRequires:	artsc-devel
 BuildRequires:	fam-devel
@@ -44,8 +44,6 @@ Pliki nag³ówkowe dla kphone.
 %setup -q
 
 %build
-kde_appsdir="%{_applnkdir}"; export kde_appsdir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
 %configure2_13 \
 	--enable-mt
@@ -57,7 +55,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	kdelnkdir=%{_applnkdir}/Network/Communications
+        kdelnkdir=%{_desktopdir}/kde
+	# kdelnkdir=%{_applnkdir}/Network/Communications
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -69,7 +68,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kphone
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_applnkdir}/Network/Communications/*.desktop
+#%%{_applnkdir}/Network/Communications/*.desktop
+%{_desktopdir}/kde/*.desktop
 %{_datadir}/apps/kphone
 %{_pixmapsdir}/*/*/apps/*.png
 
