@@ -11,13 +11,10 @@ Group:		Applications/Communications
 Source0:	http://www.wirlab.net/kphone/%{name}-%{version}.tar.gz
 # Source0-md5:	106819148c275aaa154c6efe4fcb9d23
 URL:		http://www.wirlab.net/kphone/index.html
-BuildRequires:	arts-devel
-BuildRequires:	fam-devel
+BuildRequires:	artsc-devel
 BuildRequires:	kdelibs-devel
-BuildRequires:	openssl-devel >= 0.9.6m
+BuildRequires:	openssl-devel >= 0.9.7d
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_prefix		/usr/X11R6
 
 %description
 KPhone is a SIP (Session Initiation Protocol) user agent for Linux,
@@ -34,7 +31,7 @@ internet. Od wersji 2.0 dzia³a z Presence i Instant Messaging.
 Summary:	KPhone - SIP user agent
 Summary(pl):	KPhone - Klient SIP
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for KPhone.
@@ -46,7 +43,6 @@ Pliki nag³ówkowe dla kphone.
 %setup -q -n %{name}
 
 %build
-
 %configure2_13 \
 	--enable-mt
 
@@ -58,7 +54,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
         kdelnkdir=%{_desktopdir}/kde
-	# kdelnkdir=%{_applnkdir}/Network/Communications
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -70,7 +65,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kphone
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-#%%{_applnkdir}/Network/Communications/*.desktop
 %{_desktopdir}/kde/*.desktop
 %{_datadir}/apps/kphone
 %{_pixmapsdir}/*/*/apps/*.png
