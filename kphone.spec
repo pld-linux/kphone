@@ -7,7 +7,7 @@
 Summary:	KPhone - SIP user agent
 Summary(pl):	KPhone - Klient SIP
 Name:		kphone
-Version:	2.1
+Version:	2.11
 Release:	1
 License:	GPL v2
 Group:		Applications/Communications
@@ -41,8 +41,8 @@ Header files for KPhone.
 %description -l pl devel
 Pliki nag³ówkowe dla kphone.
 
-%prep
-%setup -q
+%prep 
+%setup -q -n kphone-2.1
 
 %build
 %configure2_13 
