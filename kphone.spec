@@ -1,17 +1,21 @@
+%bcond_with	jack		# with JACK audio support
+
 Summary:	KPhone - SIP user agent
 Summary(pl):	KPhone - Klient SIP
 Name:		kphone
-Version:	4.0.5
-Release:	1
+Version:	4.1.0
+Release:	0.1
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.wirlab.net/kphone/%{name}-%{version}.tar.gz
-# Source0-md5:	30939e432fd0039d4dc8228f21e2c54b
+# Source0-md5:	d226b44d34e99887e3169ddd52a4684d
 Source1:	%{name}.desktop
 Patch0:		%{name}-opt.patch
 URL:		http://www.wirlab.net/kphone/index.html
 BuildRequires:	XFree86-devel
+BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
+%{?with_jack:BuildRequires:	jack-audio-connection-kit-devel}
 BuildRequires:	libpng-devel
 BuildRequires:	openssl-devel
 BuildRequires:	qt-devel >= 3.0
@@ -36,19 +40,20 @@ internet. Od wersji 2.0 dzia³a z Presence i Instant Messaging.
 %build
 %{__autoconf}
 %configure \
-	QTDIR=%{_libdir} \
-	--enable-mt
+	--enable-jack=%{?with_jack:yes}%{!?with_jack:no}
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	ICON_DIR=%{_datadir}/%{name}/icons \
-	DESTDIR=$RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_desktopdir}}
+install -d $RPM_BUILD_ROOT{%{_datadir}/kphone/{icons,translations}}
 
-install -d $RPM_BUILD_ROOT%{_desktopdir}
+install kphone/kphone $RPM_BUILD_ROOT%{_bindir}
+install icons/*.png $RPM_BUILD_ROOT%{_datadir}/kphone/icons
+install po/*.qm $RPM_BUILD_ROOT%{_datadir}/kphone/translations
+
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install -D icons/large-kphone.png $RPM_BUILD_ROOT%{_pixmapsdir}/kphone.png
 
@@ -57,7 +62,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc CHANGES README
 %attr(755,root,root) %{_bindir}/kphone
-%{_datadir}/kphone
+%{_datadir}/kphone/icons
+%dir %{_datadir}/kphone/translations
+%lang(de) %{_datadir}/kphone/translations/kphone_de.qm
+%lang(fi) %{_datadir}/kphone/translations/kphone_fi.qm
+%lang(fr) %{_datadir}/kphone/translations/kphone_fr.qm
+%lang(pt_BR) %{_datadir}/kphone/translations/kphone_pt_BR.qm
 %{_desktopdir}/kphone.desktop
 %{_pixmapsdir}/kphone.png
