@@ -13,7 +13,7 @@ URL:		http://www.wirlab.net/kphone/index.html
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	libpng-devel
-BuildRequires:	openssl-devel >= 0.9.7d
+BuildRequires:	openssl-devel
 BuildRequires:	qt-devel >= 3.0
 Obsoletes:	kphone-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -45,8 +45,8 @@ internet. Od wersji 2.0 dzia³a z Presence i Instant Messaging.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	BIN_DIR=$RPM_BUILD_ROOT%{_bindir} \
-	ICON_DIR=$RPM_BUILD_ROOT%{_datadir}/%{name}/icons
+	ICON_DIR=%{_datadir}/%{name}/icons \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
