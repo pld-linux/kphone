@@ -39,9 +39,9 @@ internet. Od wersji 2.0 dzia³a z Presence i Instant Messaging.
 
 %build
 %{__autoconf}
+QTDIR="%{_libdir}"; export QTDIR
 %configure \
-	--enable-jack=%{?with_jack:yes}%{!?with_jack:no} \
-	--with-qt-libraries=%{_libdir}
+	--enable-jack=%{?with_jack:yes}%{!?with_jack:no}
 %{__make}
 
 %install
