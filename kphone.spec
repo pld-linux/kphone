@@ -55,7 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	BIN_DIR=$RPM_BUILD_ROOT%{_bindir} \
 	ICON_DIR=$RPM_BUILD_ROOT%{_datadir}/%{name}/icons \
-        kdelnkdir=%{_desktopdir}/kde
+	kdelnkdir=%{_desktopdir}/kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
