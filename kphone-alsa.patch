@@ -1,0 +1,11 @@
+diff -Naur kphone/kphone/dspaudioin.cpp kphone-p/kphone/dspaudioin.cpp
+--- kphone/kphone/dspaudioin.cpp	Thu Mar  4 12:22:54 2004
++++ kphone-p/kphone/dspaudioin.cpp	Fri Sep 17 15:54:12 2004
+@@ -26,6 +26,7 @@
+ 	}
+ 
+ 	int bytes = input->readableBytes();
++	bytes = bytes & 0xff0;
+ 
+ 	if( bytes > 0 ) {
+ 
