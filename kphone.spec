@@ -17,7 +17,6 @@ BuildRequires:	kdelibs-devel
 BuildRequires:	openssl-devel >= 0.9.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-
 %description
 KPhone is a SIP (Session Initiation Protocol) user agent for Linux,
 with which you can initiate VoIP (Voice over IP) connections over the
@@ -44,6 +43,9 @@ Pliki nag³ówkowe dla kphone.
 %setup -q -n kphone-2.1
 
 %build
+kde_appsdir="%{_applnkdir}"; export kde_appsdir
+kde_icondir="%{_pixmapsdir}"; export kde_icondir
+
 %configure2_13 
 # crashes build
 #	--enable-final \
@@ -57,23 +59,23 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/Communications
 
 mv $RPM_BUILD_ROOT%{_applnkdir}/Internet/kphone.desktop $RPM_BUILD_ROOT%{_applnkdir}/Network/Communications/
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kphone
-%{_libdir}/*.so.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_libdir}/*.la
 %{_applnkdir}/Network/Communications/*.desktop
 %{_datadir}/apps/kphone/icons/hicolor/32x32/actions/*.png
-%{_datadir}/icons/*/*/apps/*.png
+%{_pixmapsdir}/*/*/apps/*.png
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/dissipate2/*.h
-%{_includedir}/gsm/*.h
-%{_includedir}/ilbc/*.h
+%{_includedir}/dissipate2
+%{_includedir}/gsm
+%{_includedir}/ilbc
