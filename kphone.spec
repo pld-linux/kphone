@@ -35,7 +35,7 @@ Group:		Developement
 %description devel
 Header files for KPhone.
 
-%description -l pl devel
+%description devel -l pl
 Pliki nag³ówkowe dla kphone.
 
 %prep 
