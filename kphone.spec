@@ -14,7 +14,7 @@ URL:		http://www.wirlab.net/kphone/index.html
 BuildRequires:	artsc-devel
 BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel
-BuildRequires:	openssl-devel
+BuildRequires:	openssl-devel >= 0.9.7d
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
