@@ -13,7 +13,7 @@ Source0:	http://www.wirlab.net/kphone/%{name}-%{version}.tgz
 URL:		http://www.wirlab.net/kphone/index.html
 BuildRequires:	kdelibs-devel >= 3.1.1
 BuildRequires:	fam-devel
-BuildRequires:	openssl-devel >= 0.9.7ca
+BuildRequires:	openssl-devel >= 0.9.7c
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
