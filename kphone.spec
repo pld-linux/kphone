@@ -1,5 +1,6 @@
 # TODO:
-#  - fix files.
+#  - Fix why segfaults on multiIP machines while run from user.
+#    From root seems to work.
 
 Summary:	KPhone - SIP user agent
 Summary(pl):	KPhone - Klient SIP
@@ -11,8 +12,10 @@ Group:		Applications/Communications
 Source0:	http://www.wirlab.net/kphone/%{name}-%{version}.tgz
 URL:		http://www.wirlab.net/kphone/index.html
 BuildRequires:	kdelibs-devel
-BuildRequires:	openssl-devel >= 0.9.7
+BuildRequires:	openssl-devel >= 0.9.6i
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define _prefix /usr/X11R6
 
 %description
 KPhone is a SIP (Session Initiation Protocol) user agent for Linux,
@@ -74,5 +77,5 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/dissipate2
-%{_includedir}/gsm
+%{_includedir}/kphonegsm
 %{_includedir}/ilbc
