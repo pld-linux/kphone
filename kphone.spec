@@ -2,14 +2,15 @@
 Summary:	KPhone - SIP user agent
 Summary(pl):	KPhone - Klient SIP
 Name:		kphone
-Version:	3.1
-Release:	0.9
+Version:	3.11
+Release:	1
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.wirlab.net/kphone/%{name}-%{version}.tgz
-# Source0-md5:	e2c26a17b5c2514cb5d952699f1c2ec2
+# Source0-md5:	dab8296cb16a8be77b0c410a3a4fe49c
 URL:		http://www.wirlab.net/kphone/index.html
 BuildRequires:	kdelibs-devel
+BuildRequires:	fam-devel
 BuildRequires:	openssl-devel >= 0.9.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
