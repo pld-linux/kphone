@@ -1,19 +1,19 @@
-# TODO:
-# - move libs into separate package
-
 Summary:	KPhone - SIP user agent
 Summary(pl):	KPhone - Klient SIP
 Name:		kphone
 Version:	4.0.2
-Release:	0.1
+Release:	0.2
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.wirlab.net/kphone/%{name}-%{version}.tar.gz
 # Source0-md5:	106819148c275aaa154c6efe4fcb9d23
+Patch0:		%{name}-opt.patch
 URL:		http://www.wirlab.net/kphone/index.html
 BuildRequires:	artsc-devel
+BuildRequires:	autoconf
 BuildRequires:	kdelibs-devel
 BuildRequires:	openssl-devel >= 0.9.7d
+Obsoletes:	kphone-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,23 +27,14 @@ KPhone jest klientem SIP (Session Initiation Protocol) dla Linuksa,
 który umo¿liwia inicjowanie po³±czeñ VoIP (G³os po IP) poprzez sieæ
 internet. Od wersji 2.0 dzia³a z Presence i Instant Messaging.
 
-%package devel
-Summary:	KPhone - SIP user agent
-Summary(pl):	KPhone - Klient SIP
-Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
-
-%description devel
-Header files for KPhone.
-
-%description devel -l pl
-Pliki nag³ówkowe dla kphone.
-
 %prep
 %setup -q -n %{name}
+%patch0 -p1
 
 %build
-%configure2_13 \
+%{__autoconf}
+%configure \
+	QTDIR=%{_libdir} \
 	--enable-mt
 
 %{__make}
