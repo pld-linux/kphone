@@ -10,6 +10,7 @@ Release:	1
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.wirlab.net/kphone/%{name}-%{version}.tgz
+# Source0-md5:	dab8296cb16a8be77b0c410a3a4fe49c
 URL:		http://www.wirlab.net/kphone/index.html
 BuildRequires:	kdelibs-devel >= 3.0
 BuildRequires:	openssl-devel >= 0.9.6i
