@@ -2,17 +2,19 @@ Summary:	KPhone - SIP user agent
 Summary(pl):	KPhone - Klient SIP
 Name:		kphone
 Version:	4.0.2
-Release:	0.2
+Release:	1
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.wirlab.net/kphone/%{name}-%{version}.tar.gz
 # Source0-md5:	106819148c275aaa154c6efe4fcb9d23
+Source1:	%{name}.desktop
 Patch0:		%{name}-opt.patch
 URL:		http://www.wirlab.net/kphone/index.html
-BuildRequires:	artsc-devel
+BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
-BuildRequires:	kdelibs-devel
+BuildRequires:	libpng-devel
 BuildRequires:	openssl-devel >= 0.9.7d
+BuildRequires:	qt-devel >= 3.0
 Obsoletes:	kphone-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -43,18 +45,19 @@ internet. Od wersji 2.0 dzia³a z Presence i Instant Messaging.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
 	BIN_DIR=$RPM_BUILD_ROOT%{_bindir} \
-	ICON_DIR=$RPM_BUILD_ROOT%{_datadir}/%{name}/icons \
-	kdelnkdir=%{_desktopdir}/kde
+	ICON_DIR=$RPM_BUILD_ROOT%{_datadir}/%{name}/icons
+
+install -d $RPM_BUILD_ROOT%{_desktopdir}
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+install -D icons/large-kphone.png $RPM_BUILD_ROOT%{_pixmapsdir}/kphone.png
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kphone
 %{_datadir}/kphone
+%{_desktopdir}/kphone.desktop
+%{_pixmapsdir}/kphone.png
