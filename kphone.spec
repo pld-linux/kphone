@@ -53,6 +53,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
+	BIN_DIR=$RPM_BUILD_ROOT%{_bindir} \
+	ICON_DIR=$RPM_BUILD_ROOT%{_datadir}/%{name}/icons \
         kdelnkdir=%{_desktopdir}/kde
 
 %clean
@@ -64,15 +66,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kphone
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_desktopdir}/kde/*.desktop
-%{_datadir}/apps/kphone
-%{_pixmapsdir}/*/*/apps/*.png
-
-%files devel
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/*.la
-%{_includedir}/dissipate2
-%{_includedir}/kphonegsm
-%{_includedir}/ilbc
+%{_datadir}/kphone
