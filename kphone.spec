@@ -1,14 +1,11 @@
 # TODO:
-#  - fix ac/am suite
-#  - maybe libs should be in separate package?
-#  - check if files are layed in system in right way.
-#  - make it not segfault on start ;)
+#  - fix files.
 
 Summary:	KPhone - SIP user agent
 Summary(pl):	KPhone - Klient SIP
 Name:		kphone
-Version:	2.11
-Release:	1
+Version:	3.1
+Release:	0.9
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.wirlab.net/kphone/%{name}-%{version}.tgz
@@ -40,7 +37,7 @@ Header files for KPhone.
 Pliki nag³ówkowe dla kphone.
 
 %prep 
-%setup -q -n kphone-2.1
+%setup -q 
 
 %build
 kde_appsdir="%{_applnkdir}"; export kde_appsdir
