@@ -38,14 +38,14 @@ Header files for KPhone.
 %description devel -l pl
 Pliki nag³ówkowe dla kphone.
 
-%prep 
-%setup -q 
+%prep
+%setup -q
 
 %build
 kde_appsdir="%{_applnkdir}"; export kde_appsdir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
-%configure2_13 
+%configure2_13
 # crashes build
 #	--enable-final \
 %{__make}
