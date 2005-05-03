@@ -3,12 +3,12 @@
 Summary:	KPhone - SIP user agent
 Summary(pl):	KPhone - Klient SIP
 Name:		kphone
-Version:	4.1.0
-Release:	2
+Version:	4.1.1
+Release:	1
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.wirlab.net/kphone/%{name}-%{version}.tar.gz
-# Source0-md5:	d226b44d34e99887e3169ddd52a4684d
+# Source0-md5:	b95252f527e2fbe107f5d3c1159e2e25
 Source1:	%{name}.desktop
 Patch0:		%{name}-opt.patch
 URL:		http://www.wirlab.net/kphone/index.html
@@ -19,6 +19,7 @@ BuildRequires:	autoconf
 BuildRequires:	libpng-devel
 BuildRequires:	openssl-devel
 BuildRequires:	qt-devel >= 3.0
+BuildRequires:	qt-linguist
 Obsoletes:	kphone-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -67,8 +68,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kphone/icons
 %dir %{_datadir}/kphone/translations
 %lang(de) %{_datadir}/kphone/translations/kphone_de.qm
+%lang(es_ES) %{_datadir}/kphone/translations/kphone_es_ES.qm
 %lang(fi) %{_datadir}/kphone/translations/kphone_fi.qm
 %lang(fr) %{_datadir}/kphone/translations/kphone_fr.qm
+%lang(hu) %{_datadir}/kphone/translations/kphone_hu.qm
 %lang(pt_BR) %{_datadir}/kphone/translations/kphone_pt_BR.qm
+%lang(sv) %{_datadir}/kphone/translations/kphone_sv.qm
 %{_desktopdir}/kphone.desktop
 %{_pixmapsdir}/kphone.png
