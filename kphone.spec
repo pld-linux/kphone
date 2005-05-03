@@ -68,7 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kphone/icons
 %dir %{_datadir}/kphone/translations
 %lang(de) %{_datadir}/kphone/translations/kphone_de.qm
-%lang(es_ES) %{_datadir}/kphone/translations/kphone_es_ES.qm
+%lang(es) %{_datadir}/kphone/translations/kphone_es_ES.qm
 %lang(fi) %{_datadir}/kphone/translations/kphone_fi.qm
 %lang(fr) %{_datadir}/kphone/translations/kphone_fr.qm
 %lang(hu) %{_datadir}/kphone/translations/kphone_hu.qm
