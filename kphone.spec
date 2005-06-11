@@ -66,6 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc CHANGES README
 %attr(755,root,root) %{_bindir}/kphone
 %{_datadir}/kphone/icons
+%dir %{_datadir}/kphone
 %dir %{_datadir}/kphone/translations
 %lang(de) %{_datadir}/kphone/translations/kphone_de.qm
 %lang(es) %{_datadir}/kphone/translations/kphone_es_ES.qm
