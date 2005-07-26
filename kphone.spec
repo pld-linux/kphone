@@ -3,12 +3,12 @@
 Summary:	KPhone - SIP user agent
 Summary(pl):	KPhone - Klient SIP
 Name:		kphone
-Version:	4.1.1
+Version:	4.2
 Release:	1
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.wirlab.net/kphone/%{name}-%{version}.tar.gz
-# Source0-md5:	b95252f527e2fbe107f5d3c1159e2e25
+# Source0-md5:	632abebc16d4f40bf03d191892e00e22
 Source1:	%{name}.desktop
 Patch0:		%{name}-opt.patch
 URL:		http://www.wirlab.net/kphone/index.html
@@ -73,6 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(fi) %{_datadir}/kphone/translations/kphone_fi.qm
 %lang(fr) %{_datadir}/kphone/translations/kphone_fr.qm
 %lang(hu) %{_datadir}/kphone/translations/kphone_hu.qm
+%lang(pl) %{_datadir}/kphone/translations/kphone_pl_PL.qm
 %lang(pt_BR) %{_datadir}/kphone/translations/kphone_pt_BR.qm
 %lang(sv) %{_datadir}/kphone/translations/kphone_sv.qm
 %{_desktopdir}/kphone.desktop
