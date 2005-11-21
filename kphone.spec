@@ -47,9 +47,8 @@ QTDIR="%{_libdir}"; export QTDIR
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_desktopdir}}
-install -d $RPM_BUILD_ROOT%{_datadir}/kphone/{icons,translations}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_desktopdir}} \
+	$RPM_BUILD_ROOT%{_datadir}/kphone/{icons,translations}
 
 install kphone/kphone $RPM_BUILD_ROOT%{_bindir}
 install icons/*.png $RPM_BUILD_ROOT%{_datadir}/kphone/icons
