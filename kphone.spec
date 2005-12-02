@@ -1,5 +1,7 @@
+#
+# Conditional build:
 %bcond_with	jack		# with JACK audio support
-
+#
 Summary:	KPhone - SIP user agent
 Summary(pl):	KPhone - Klient SIP
 Name:		kphone
