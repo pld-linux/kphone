@@ -6,15 +6,16 @@ Summary:	KPhone - SIP user agent
 Summary(pl):	KPhone - Klient SIP
 Name:		kphone
 Version:	4.2
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.wirlab.net/kphone/%{name}-%{version}.tar.gz
 # Source0-md5:	632abebc16d4f40bf03d191892e00e22
 Source1:	%{name}.desktop
 Patch0:		%{name}-opt.patch
+Patch1:		%{name}-gcc4.patch
 URL:		http://www.wirlab.net/kphone/index.html
-BuildRequires:	XFree86-devel
+BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
 %{?with_jack:BuildRequires:	jack-audio-connection-kit-devel}
@@ -39,6 +40,7 @@ internet. Od wersji 2.0 dzia³a z Presence i Instant Messaging.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__autoconf}
