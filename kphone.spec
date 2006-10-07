@@ -15,7 +15,6 @@ Source1:	%{name}.desktop
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-gcc4.patch
 URL:		http://www.wirlab.net/kphone/index.html
-BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
 %{?with_jack:BuildRequires:	jack-audio-connection-kit-devel}
@@ -23,6 +22,12 @@ BuildRequires:	libpng-devel
 BuildRequires:	openssl-devel
 BuildRequires:	qt-devel >= 3.0
 BuildRequires:	qt-linguist
+# TODO: check which are required, kill the rest from configure
+BuildRequires:	xorg-lib-libICE-devel
+BuildRequires:	xorg-lib-libSM-devel
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXt-devel
 Obsoletes:	kphone-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
