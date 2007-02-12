@@ -3,7 +3,7 @@
 %bcond_with	jack		# with JACK audio support
 #
 Summary:	KPhone - SIP user agent
-Summary(pl):	KPhone - Klient SIP
+Summary(pl.UTF-8):   KPhone - Klient SIP
 Name:		kphone
 Version:	4.2
 Release:	3
@@ -37,10 +37,10 @@ with which you can initiate VoIP (Voice over IP) connections over the
 Internet. The new 2.0 version also supports Presence and Instant
 Messaging.
 
-%description -l pl
+%description -l pl.UTF-8
 KPhone jest klientem SIP (Session Initiation Protocol) dla Linuksa,
-który umo¿liwia inicjowanie po³±czeñ VoIP (G³os po IP) poprzez sieæ
-internet. Od wersji 2.0 dzia³a z Presence i Instant Messaging.
+ktÃ³ry umoÅ¼liwia inicjowanie poÅ‚Ä…czeÅ„ VoIP (GÅ‚os po IP) poprzez sieÄ‡
+internet. Od wersji 2.0 dziaÅ‚a z Presence i Instant Messaging.
 
 %prep
 %setup -q -n %{name}
