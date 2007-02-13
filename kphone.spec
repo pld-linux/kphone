@@ -3,7 +3,7 @@
 %bcond_with	jack		# with JACK audio support
 #
 Summary:	KPhone - SIP user agent
-Summary(pl.UTF-8):   KPhone - Klient SIP
+Summary(pl.UTF-8):	KPhone - Klient SIP
 Name:		kphone
 Version:	4.2
 Release:	3
