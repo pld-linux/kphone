@@ -20,7 +20,7 @@ BuildRequires:	autoconf
 %{?with_jack:BuildRequires:	jack-audio-connection-kit-devel}
 BuildRequires:	libpng-devel
 BuildRequires:	openssl-devel
-BuildRequires:	qt-devel >= 3.0
+BuildRequires:	qt-devel >= 6:3.0
 BuildRequires:	qt-linguist
 # TODO: check which are required, kill the rest from configure
 BuildRequires:	xorg-lib-libICE-devel
