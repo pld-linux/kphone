@@ -6,7 +6,7 @@ Summary:	KPhone - SIP user agent
 Summary(pl.UTF-8):	KPhone - Klient SIP
 Name:		kphone
 Version:	4.2
-Release:	3
+Release:	4
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.wirlab.net/kphone/%{name}-%{version}.tar.gz
