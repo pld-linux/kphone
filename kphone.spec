@@ -44,8 +44,8 @@ internet. Od wersji 2.0 działa z Presence i Instant Messaging.
 
 %prep
 %setup -q -n %{name}
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 %build
 %{__autoconf}
